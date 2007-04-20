@@ -223,9 +223,22 @@ ad_proc -public template::widget::textarea { element_reference tag_attributes } 
   # Spell-checker
   array set spellcheck [template::util::spellcheck::spellcheck_properties -element_ref element]
   
+  # fix the "yes" & "no" languages to localized versions, the other names are still english
+  set languages {}
+  foreach i [nsv_get spellchecker lang_options] {
+      unlist $i text value
+      if {$text == "No"} {
+	  set text [_ acs-kernel.common_no]
+      }
+      if {$text == "Yes"} {
+	  set text [_ acs-kernel.common_yes]
+      }
+      lappend languages [list $text $value]
+  }
+
   if { [string equal $element(mode) "edit"] && $spellcheck(render_p) } {
       append output "<br>[_ acs-templating.Spellcheck]: 
-[menu "$element(id).spellcheck" [nsv_get spellchecker lang_options] $spellcheck(selected_option) {}]"
+[menu "$element(id).spellcheck" $languages $spellcheck(selected_option) {}]"
   }   
 
   return $output
