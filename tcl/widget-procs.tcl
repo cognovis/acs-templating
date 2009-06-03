@@ -434,59 +434,51 @@ ad_proc -public template::widget::menu {
     attribute_reference
     {mode edit}
 } {
-
-  upvar $attribute_reference attributes
-  
-  # Create an array for easier testing of selected values
-  template::util::list_to_lookup $values_list values 
-
-  if { ![string equal $mode "edit"] } {
-    set selected_list [list]
-    set output {}
+    upvar $attribute_reference attributes
     
-    foreach option $options_list {
-      
-      set label [lindex $option 0]
-      set value [lindex $option 1]
-      
-      if { [info exists values($value)] } {
-        lappend selected_list $label
-        append output "<input type=\"hidden\" name=\"$widget_name\" value=\"[ad_quotehtml $value]\">"
-      }
-    }
+    # Create an array for easier testing of selected values
+    template::util::list_to_lookup $values_list values 
     
-    append output [join $selected_list ", "]
-  } else {
-    set output "<select name=\"$widget_name\" "
-  
-    foreach name [array names attributes] {
-      if { [string equal $attributes($name) {}] } {
-        append output " $name"
-      } else {
-        append output " $name=\"$attributes($name)\""
-      }
+    if {![string equal $mode "edit"] } {
+	set selected_list [list]
+	set output {}
+    
+	foreach option $options_list {
+	    set label [lindex $option 0]
+	    set value [lindex $option 1]
+	    if { [info exists values($value)] } {
+		lappend selected_list $label
+		append output "<input type=\"hidden\" name=\"$widget_name\" value=\"[ad_quotehtml $value]\">"
+	    }
+	}
+	append output [join $selected_list ", "]
+
+    } else {
+
+	set output "<select name=\"$widget_name\" "
+	
+	foreach name [array names attributes] {
+	    if { [string equal $attributes($name) {}] } {
+		append output " $name"
+	    } else {
+		append output " $name=\"$attributes($name)\""
+	    }
+	}
+	
+	append output ">\n"
+	
+	foreach option $options_list {
+	    set label [lindex $option 0]
+	    set value [lindex $option 1]
+	    append output " <option value=\"[template::util::quote_html $value]\""
+	    if { [info exists values($value)] } {
+		append output " selected=\"selected\""
+	    }
+	    append output ">$label</option>\n"
+	}
+	append output "</select>"
     }
-  
-    append output ">\n"
-  
-    foreach option $options_list {
-
-      set label [lindex $option 0]
-      set value [lindex $option 1]
-
-      append output " <option value=\"[template::util::quote_html $value]\""
-        
-      if { [info exists values($value)] } {
-        append output " selected=\"selected\""
-      }
-
-      append output ">$label</option>\n"
-    }
-  
-    append output "</select>"
-  }
-
-  return $output
+    return $output
 }
 
 ad_proc -public template::widget::select { element_reference tag_attributes } {
