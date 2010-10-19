@@ -22,7 +22,12 @@
 namespace eval template {}
 namespace eval template::request {}
 
-ad_proc -public template::request { command args } {
+ad_proc -public template::request {
+  command
+  args
+} {
+  Dispatch procedure for requests.
+} {
   eval request::$command $args
 }
 
@@ -49,7 +54,7 @@ ad_proc -public template::request::create { args } {
     foreach param [split $param_data "\n"] {
 
       set param [string trim $param]
-      if { [string equal $param {}] } { continue }
+      if {$param eq {}} { continue }
 
       eval set_param $param
     }
@@ -160,9 +165,9 @@ ad_proc -public template::request::is_valid { { url "" } } {
     # set requesterror as a data source
     uplevel #$level "upvar 0 request:error requesterror"
 
-    if { ! [string equal $url "self"] } {
+    if { $url ne "self" } {
 
-      if { [string equal $url {}] } { 
+      if {$url eq {}} { 
 	set file_stub [template::get_resource_path]/messages/request-error
       } else {
 	set file_stub [ns_url2file $url]

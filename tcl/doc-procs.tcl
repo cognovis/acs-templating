@@ -21,7 +21,11 @@
 
 namespace eval template {}
 
-ad_proc -public template::parse_directives { code } {
+ad_proc -public template::parse_directives {
+  code
+} {
+  Parse out directives embedded in the code parameter.
+} {
 
   # remove carriage returns if present
   regsub -all {\r|\r\n} $code {\n} code
@@ -98,7 +102,7 @@ ad_proc -public template::get_datasources { code } {
 	set structure [lindex $info 1]
 	set comment [lrange $info 2 end]
 
-	if { [string match one* $structure] } {
+	if { [string match "one*" $structure] } {
 
 	  # directive is a onevalue or onelist.  add a row and move on
 	  incr rowcount
@@ -160,6 +164,8 @@ ad_proc -public template::get_datasources { code } {
 }
 
 ad_proc -public template::verify_datasources {} {
+  @return True (1)
+} {
   return 1
 }
 
