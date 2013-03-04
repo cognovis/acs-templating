@@ -1037,6 +1037,7 @@ ad_proc -public template::widget::date { element_reference tag_attributes } {
   set format_string $element(format)
 
   set tokens [list]
+  set token ""
 
   if {[info exists attributes(id)]} {
        set id_attr_name $attributes(id)
