@@ -1024,6 +1024,9 @@ ad_proc -public template::widget::date { element_reference tag_attributes } {
   if { [info exists element(value)] && 
        [template::util::date::get_property not_null $element(value)] } {
     set value $element(value)
+    if { [regexp {([0-9]*)-([0-9]*)-([0-9]*)} $value match _year _month _day] } {
+	set value "$_year $_month $_day 0 0 0 \{YYYY MONTH DD\}"
+    }
     foreach v $value {
       lappend trim_value [template::util::leadingTrim $v]
     }
