@@ -27,7 +27,6 @@
 
         <else>
           <tr>
-
             <if @elements.label@ not nil>
               <noparse>
                 <if \@formerror.@elements.id@\@ not nil>
@@ -36,10 +35,7 @@
                 <else>
                   <td bgcolor="#ffffff">
                 </else>
-              </noparse>
-                    @elements.label;noquote@
-                &nbsp;&nbsp;
-              </td>
+              </noparse>@elements.label;noquote@&nbsp;&nbsp;</td>
             </if>
             <else>
               <td bgcolor="#ffffff">
@@ -63,11 +59,9 @@
                       <tr>
                         <td>\@formgroup.widget;noquote@</td>
                         <td>
-                          <font face="tahoma,verdana,arial,helvetica,sans-serif">
                             <label for="@elements.form_id@:elements:@elements.id@:\@formgroup.option@">
                               \@formgroup.label@
                             </label>
-                          </font>
                         </td>
                       </tr>
                     </formgroup>
@@ -76,17 +70,15 @@
               </if>
 
               <else>
-                <font face="tahoma,verdana,arial,helvetica,sans-serif">
                   <noparse>
                     <formwidget id="@elements.id@">
                   </noparse>
-                </font>
               </else>
 
               <noparse>
                 <formerror id="@elements.id@">
                   <br>
-                  <font face="tahoma,verdana,arial,helvetica,sans-serif" color="red">
+                  <font color="red">
                     <b>\@formerror.@elements.id@;noquote\@<b>
                   </font>
                 </formerror>
@@ -94,11 +86,9 @@
 
               <if @elements.help_text@ not nil>
                 <p style="margin-top: 4px; margin-bottom: 2px;">
-                  <font face="tahoma,verdana,arial,helvetica,sans-serif">
                     <noparse>
                       <i><formhelp id="@elements.id@"></i>
                     </noparse>
-                  </font>
                 </p>
               </if>
 
