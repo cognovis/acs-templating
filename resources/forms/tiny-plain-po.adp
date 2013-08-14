@@ -24,7 +24,6 @@
             </td>
           </tr>
         </if>
-
         <else>
           <tr>
             <if @elements.label@ not nil>
@@ -59,9 +58,11 @@
                       <tr>
                         <td>\@formgroup.widget;noquote@</td>
                         <td>
+			   <span class="po_form_element">
                             <label for="@elements.form_id@:elements:@elements.id@:\@formgroup.option@">
                               \@formgroup.label@
                             </label>
+                          </span>
                         </td>
                       </tr>
                     </formgroup>
@@ -70,31 +71,33 @@
               </if>
 
               <else>
+                <span class="po_form_element">
                   <noparse>
                     <formwidget id="@elements.id@">
                   </noparse>
+                </span>
               </else>
 
               <noparse>
                 <formerror id="@elements.id@">
                   <br>
-                  <font color="red">
+		   <span class="po_form_element_error">
                     <b>\@formerror.@elements.id@;noquote\@<b>
-                  </font>
+                  </span>
                 </formerror>
               </noparse>
 
               <if @elements.help_text@ not nil>
-                <p style="margin-top: 4px; margin-bottom: 2px;">
+		<span class="po_form_element_help">
                     <noparse>
                       <i><formhelp id="@elements.id@"></i>
                     </noparse>
+                </span>
                 </p>
               </if>
 
             </td>
           </tr>
-
         </else>
       </else>
     </group>
