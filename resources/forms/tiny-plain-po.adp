@@ -1,5 +1,5 @@
 <!-- Form elements -->
-<table cellspacing="2" cellpadding="2" border="0">
+<table class="filter-table">
   <multiple name=elements>
 
     <if @elements.section@ not nil>
