@@ -1,5 +1,5 @@
 /**
- * $Id$
+ * $Id: tiny_mce_dev.js,v 1.1 2010/10/20 00:44:43 po34demo Exp $
  *
  * @author Moxiecode
  * @copyright Copyright © 2004-2007, Moxiecode Systems AB, All rights reserved.

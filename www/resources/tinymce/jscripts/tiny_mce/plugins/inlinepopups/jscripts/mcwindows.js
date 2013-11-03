@@ -1,5 +1,5 @@
 /**
- * $Id$
+ * $Id: mcwindows.js,v 1.1 2010/10/20 01:37:08 po34demo Exp $
  *
  * Moxiecode DHTML Windows script.
  *
