@@ -7,7 +7,7 @@
   <msg key="data">Daten</msg>
   <msg key="Day">Tag</msg>
   <msg key="day">Tag</msg>
-  <msg key="Element_is_required">%label% muss ausgefüllt werden</msg>
+  <msg key="Element_is_required">%label% muss ausgefüllt sein</msg>
   <msg key="Element_is_too_long_Plural">%label% ist um %excess_no_bytes% Zeichen zu lang.</msg>
   <msg key="Element_is_too_long_Singular">%label% ist um 1 Zeichen zu lang.</msg>
   <msg key="Formats">Formate</msg>
@@ -68,7 +68,7 @@
   <msg key="Page">Seite</msg>
   <msg key="Page_Size">Größe der Liste</msg>
   <msg key="Previous_with_arrow">&lt;&lt; Zurück</msg>
-  <msg key="required">Angabe erforderlich</msg>
+  <msg key="required">erforderliche Eingaben</msg>
   <msg key="Seconds">Sekunden</msg>
   <msg key="seconds">Sekunden</msg>
   <msg key="Seconds_must_be_between_0_and_59">Sekunden müssen zwischen 0 und 59 liegen</msg>
