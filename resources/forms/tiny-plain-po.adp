@@ -1,5 +1,5 @@
 <!-- Form elements -->
-<table cellspacing="2" cellpadding="2" border="0">
+<table class="filter-table">
   <multiple name=elements>
 
     <if @elements.section@ not nil>
@@ -24,10 +24,8 @@
             </td>
           </tr>
         </if>
-
         <else>
           <tr>
-
             <if @elements.label@ not nil>
               <noparse>
                 <if \@formerror.@elements.id@\@ not nil>
@@ -36,10 +34,7 @@
                 <else>
                   <td bgcolor="#ffffff">
                 </else>
-              </noparse>
-                    @elements.label;noquote@
-                &nbsp;&nbsp;
-              </td>
+              </noparse>@elements.label;noquote@&nbsp;&nbsp;</td>
             </if>
             <else>
               <td bgcolor="#ffffff">
@@ -61,13 +56,13 @@
                   <table cellpadding="4" cellspacing="0" border="0">
                     <formgroup id="@elements.id@">
                       <tr>
-                        <td>\@formgroup.widget@</td>
+                        <td>\@formgroup.widget;noquote@</td>
                         <td>
-                          <font face="tahoma,verdana,arial,helvetica,sans-serif">
+			   <span class="po_form_element">
                             <label for="@elements.form_id@:elements:@elements.id@:\@formgroup.option@">
                               \@formgroup.label@
                             </label>
-                          </font>
+                          </span>
                         </td>
                       </tr>
                     </formgroup>
@@ -76,35 +71,33 @@
               </if>
 
               <else>
-                <font face="tahoma,verdana,arial,helvetica,sans-serif">
+                <span class="po_form_element">
                   <noparse>
                     <formwidget id="@elements.id@">
                   </noparse>
-                </font>
+                </span>
               </else>
 
               <noparse>
                 <formerror id="@elements.id@">
                   <br>
-                  <font face="tahoma,verdana,arial,helvetica,sans-serif" color="red">
+		   <span class="po_form_element_error">
                     <b>\@formerror.@elements.id@;noquote\@<b>
-                  </font>
+                  </span>
                 </formerror>
               </noparse>
 
               <if @elements.help_text@ not nil>
-                <p style="margin-top: 4px; margin-bottom: 2px;">
-                  <font face="tahoma,verdana,arial,helvetica,sans-serif">
+		<span class="po_form_element_help">
                     <noparse>
                       <i><formhelp id="@elements.id@"></i>
                     </noparse>
-                  </font>
+                </span>
                 </p>
               </if>
 
             </td>
           </tr>
-
         </else>
       </else>
     </group>
