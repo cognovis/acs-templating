@@ -389,7 +389,7 @@ ad_proc -public template::widget::input {
     # Handle display mode of visible normal form elements, i.e. not hidden, not submit, not button, not clear
     if { $element(mode) ne "edit" && [lsearch -exact { hidden submit button clear checkbox radio } $type] == -1 } {
         set output ""
-        if { [info exists element(value)] } {
+        if { [exists_and_not_null element(value)] } {
             append output [ad_quotehtml $element(value)]
             append output "<input type=\"hidden\" name=\"$element(name)\" value=\"[ad_quotehtml $element(value)]\">"
         }
@@ -400,7 +400,7 @@ ad_proc -public template::widget::input {
             append output " disabled"
 		}
 
-        if { [info exists element(value)] } {
+        if { [exists_and_not_null element(value)]} {
             append output " value=\"[template::util::quote_html $element(value)]\""
         } 
 
