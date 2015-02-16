@@ -2,8 +2,9 @@
 <table class="filter-table">
   <multiple name=elements>
 
+
     <if @elements.section@ not nil>
-      <tr bgcolor="#ccccff"><th colspan="2">@elements.section@</th></tr>
+        <tr bgcolor="#ccccff"><th colspan="2">@elements.sec_legendtext@</th></tr>
     </if>
 
     <group column="section">
@@ -101,6 +102,7 @@
         </else>
       </else>
     </group>
+
   </multiple>
 
 </table>
