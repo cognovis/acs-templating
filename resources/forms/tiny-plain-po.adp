@@ -61,7 +61,7 @@
                         <td>
 			   <span class="po_form_element">
                             <label for="@elements.form_id@:elements:@elements.id@:\@formgroup.option@">
-                              \@formgroup.label@
+                              \@formgroup.label;noquote@
                             </label>
                           </span>
                         </td>
@@ -87,7 +87,7 @@
                   </span>
                 </formerror>
               </noparse>
-
+	      <br />
               <if @elements.help_text@ not nil>
 		<span class="po_form_element_help">
                     <noparse>
